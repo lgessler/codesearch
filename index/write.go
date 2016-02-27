@@ -149,26 +149,25 @@ func (ix *IndexWriter) Add(name string, f io.Reader) {
 		if n++; n >= 3 {
 			ix.trigram.Add(tv)
 		}
-        /* these take out good files--ignore these rules
+        //these take out good files--ignore these rules
 		if !validUTF8((tv>>8)&0xFF, tv&0xFF) {
 			if ix.LogSkip {
 				log.Printf("%s: invalid UTF-8, ignoring\n", name)
 			}
-			return
+			//return
 		}
 		if n > maxFileLen {
 			if ix.LogSkip {
 				log.Printf("%s: too long, ignoring\n", name)
 			}
-			return
+			//return
 		}
 		if linelen++; linelen > maxLineLen {
 			if ix.LogSkip {
 				log.Printf("%s: very long lines, ignoring\n", name)
 			}
-			return
+			//return
 		}
-        */
 		if c == '\n' {
 			linelen = 0
 		}
